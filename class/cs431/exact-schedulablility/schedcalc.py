@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 
 # Copyright (c) 2013 Adam Blackburn
-# 
-# Permission is hereby granted, free of charge, to any person obtaining a copy of
-# this software and associated documentation files (the "Software"), to deal in
-# the Software without restriction, including without limitation the rights to
-# use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-# of the Software, and to permit persons to whom the Software is furnished to do
-# so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-# 
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -34,7 +34,7 @@ process_count = len(exec_times)
 # the initial response times
 r = []
 for i in range(process_count):
-    r.append([sum(exec_times[:i+1])])
+    r.append([sum(exec_times[:i + 1])])
 
 print 'execution times', exec_times
 print 'periods', periods
@@ -57,7 +57,7 @@ for i in range(process_count):
         sum = 0
         for j in range(i):
             sum += int(math.ceil(
-                    float(r[i][-1])/float(periods[j])) * exec_times[j]
+                    float(r[i][-1]) / float(periods[j])) * exec_times[j]
                 )
         sum += exec_times[i]
 
@@ -71,7 +71,7 @@ for i in range(process_count):
         print 'sum', sum, 'period', periods[i]
 
         # check if task is scheduable
-        if r[i][k] == r[i][k-1]:
+        if r[i][k] == r[i][k - 1]:
             print 'schedulable'
             break
 
@@ -84,4 +84,3 @@ for i in range(process_count):
 
 # print the response times
 print 'response times', r
-    
